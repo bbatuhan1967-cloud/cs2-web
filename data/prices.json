@@ -3,63 +3,36 @@
     "Redline",
     "Fire Serpent",
     "Vulcan",
-    "Asiimov",
     "Bloodsport",
     "Neon Rider",
-    "Fuel Injector",
-    "Case Hardened",
-    "Gold Arabesque"
+    "Fuel Injector"
   ],
   "AWP": [
-    "Dragon Lore",
     "Asiimov",
+    "Dragon Lore",
     "Hyper Beast",
-    "Wildfire",
-    "Fade",
-    "Containment Breach",
-    "Gungnir",
-    "Medusa"
+    "Medusa",
+    "Gungnir"
   ],
   "M4A1-S": [
     "Printstream",
     "Hot Rod",
-    "Golden Coil",
     "Blue Phosphor",
-    "Icarus Fell",
-    "Player Two"
+    "Icarus Fell"
   ],
   "M4A4": [
     "Howl",
     "Asiimov",
-    "The Emperor",
-    "Neo-Noir",
-    "Poseidon"
+    "The Emperor"
   ],
-  "Desert Eagle": [
-    "Blaze",
-    "Printstream",
-    "Code Red",
-    "Emerald Jörmungandr"
-  ],
-  "USP-S": [
-    "Kill Confirmed",
-    "Printstream",
-    "Neo-Noir",
-    "Orion",
-    "Caiman"
-  ],
-  "Glock-18": [
-    "Fade",
-    "Bullet Queen",
-    "Neo-Noir",
-    "Twilight Galaxy"
+  "Pistols": [
+    "Desert Eagle | Blaze",
+    "USP-S | Kill Confirmed",
+    "Glock-18 | Fade"
   ],
   "Knives": [
     "Karambit | Doppler",
-    "Karambit | Fade",
     "Butterfly Knife | Fade",
-    "Butterfly Knife | Doppler",
-    "M9 Bayonet | Marble Fade",
-    "Bayonet | Doppler"
+    "M9 Bayonet | Marble Fade"
   ]
 }
