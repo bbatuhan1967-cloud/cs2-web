@@ -1,55 +1,104 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CS2 Skin Market Tool</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS2 Skin Analiz</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="app.js"></script>
 </head>
-<body>
 
-<div class="container">
-  <h1>🎨 CS2 Skin Market Tool</h1>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white">
 
-  <!-- SKIN ANALIZI -->
-  <div class="section">
-    <h2>🔍 Skin Analizi</h2>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-10 bg-slate-900/80 backdrop-blur border-b border-slate-700">
+    <div class="max-w-5xl mx-auto p-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold text-emerald-400">CS2 Skin Analiz</h1>
+        <p class="text-xs text-slate-400">TL · Mobil uyumlu · Web</p>
+      </div>
+      <span class="text-xs px-2 py-1 rounded bg-emerald-500/20 text-emerald-300">LIVE</span>
+    </div>
+  </header>
 
-    <select id="aSkin">
-      <option>AK-47 | Redline</option>
-      <option>AWP | Asiimov</option>
-    </select>
+  <!-- MAIN -->
+  <main class="max-w-5xl mx-auto p-4 grid gap-4 md:grid-cols-2">
 
-    <input id="aFloat" type="number" step="0.01" placeholder="Float (ör: 0.15)">
-    <input id="aSticker" type="number" placeholder="Sticker sayısı">
-    <input id="aPrice" type="number" placeholder="Alış fiyatı (₺)">
+    <!-- SOL: FORM -->
+    <section class="bg-slate-900 rounded-2xl p-4 shadow-xl space-y-3">
+      <h2 class="font-semibold text-lg">🔍 Skin Analizi</h2>
 
-    <button onclick="analyze('a')">📊 Analiz Et</button>
+      <div>
+        <label class="text-sm text-slate-300">Skin</label>
+        <select id="buySkin" class="w-full mt-1 bg-slate-800 rounded-xl p-2">
+          <option>AK-47 | Redline</option>
+          <option>AWP | Asiimov</option>
+          <option>M4A1-S | Printstream</option>
+        </select>
+      </div>
 
-    <div id="aResult" class="result"></div>
-    <canvas id="aChart" width="300" height="100"></canvas>
-  </div>
+      <div class="grid grid-cols-3 gap-2">
+        <div>
+          <label class="text-sm text-slate-300">Float</label>
+          <input id="buyFloat" type="number" step="0.001" value="0.15"
+            class="w-full mt-1 bg-slate-800 rounded-xl p-2"/>
+        </div>
+        <div>
+          <label class="text-sm text-slate-300">Sticker</label>
+          <input id="buySticker" type="number" value="0"
+            class="w-full mt-1 bg-slate-800 rounded-xl p-2"/>
+        </div>
+        <div>
+          <label class="text-sm text-slate-300">Alış ₺</label>
+          <input id="buyPrice" type="number" value="0"
+            class="w-full mt-1 bg-slate-800 rounded-xl p-2"/>
+        </div>
+      </div>
 
-  <!-- TRADE KARŞILAŞTIRMA -->
-  <div class="section">
-    <h2>🔁 Trade Karşılaştırma</h2>
+      <button onclick="analyze('buy')"
+        class="w-full mt-2 bg-emerald-500 hover:bg-emerald-600 active:scale-[.98]
+               transition font-bold py-3 rounded-2xl text-black">
+        ANALİZ ET
+      </button>
+    </section>
 
-    <select id="bSkin">
-      <option>AK-47 | Redline</option>
-      <option>AWP | Asiimov</option>
-    </select>
+    <!-- SAĞ: SONUÇ -->
+    <section class="bg-slate-900 rounded-2xl p-4 shadow-xl space-y-3">
+      <h2 class="font-semibold text-lg">📊 Sonuç</h2>
 
-    <input id="bFloat" type="number" step="0.01" placeholder="Float">
-    <input id="bSticker" type="number" placeholder="Sticker">
-    <input id="bPrice" type="number" placeholder="Fiyat (₺)">
+      <div id="buyResult"
+        class="rounded-xl p-4 bg-slate-950 text-center text-lg">
+        Sonuç burada görünecek
+      </div>
 
-    <button onclick="analyze('b')">🔁 Karşılaştır</button>
+      <div class="rounded-xl bg-slate-950 p-3">
+        <canvas id="buyChart" height="160"></canvas>
+      </div>
 
-    <div id="bResult" class="result"></div>
-    <canvas id="bChart" width="300" height="100"></canvas>
-  </div>
-</div>
+      <div class="grid grid-cols-3 gap-2 text-xs text-center">
+        <div class="rounded-lg bg-slate-800 p-2">
+          <div class="text-slate-400">Likidite</div>
+          <div class="font-bold">—</div>
+        </div>
+        <div class="rounded-lg bg-slate-800 p-2">
+          <div class="text-slate-400">Trend</div>
+          <div class="font-bold">—</div>
+        </div>
+        <div class="rounded-lg bg-slate-800 p-2">
+          <div class="text-slate-400">Risk</div>
+          <div class="font-bold">—</div>
+        </div>
+      </div>
+    </section>
 
-<script src="app.js"></script>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-xs text-slate-500 py-6">
+    CS2 Skin Analiz · Demo · Web
+  </footer>
+
 </body>
 </html>
