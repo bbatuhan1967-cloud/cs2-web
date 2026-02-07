@@ -1,17 +1,65 @@
 {
-  "AK-47 | Redline": {
-    "avg": 5200,
-    "liq": 9,
-    "history": [4800, 4950, 5100, 5200, 5350, 5500]
-  },
-  "AWP | Asiimov": {
-    "avg": 18500,
-    "liq": 8,
-    "history": [17000, 17500, 18000, 18500, 19000]
-  },
-  "M4A1-S | Printstream": {
-    "avg": 14300,
-    "liq": 7,
-    "history": [13000, 13500, 13800, 14000, 14300]
-  }
+  "AK-47": [
+    "Redline",
+    "Fire Serpent",
+    "Vulcan",
+    "Asiimov",
+    "Bloodsport",
+    "Neon Rider",
+    "Fuel Injector",
+    "Case Hardened",
+    "Gold Arabesque"
+  ],
+  "AWP": [
+    "Dragon Lore",
+    "Asiimov",
+    "Hyper Beast",
+    "Wildfire",
+    "Fade",
+    "Containment Breach",
+    "Gungnir",
+    "Medusa"
+  ],
+  "M4A1-S": [
+    "Printstream",
+    "Hot Rod",
+    "Golden Coil",
+    "Blue Phosphor",
+    "Icarus Fell",
+    "Player Two"
+  ],
+  "M4A4": [
+    "Howl",
+    "Asiimov",
+    "The Emperor",
+    "Neo-Noir",
+    "Poseidon"
+  ],
+  "Desert Eagle": [
+    "Blaze",
+    "Printstream",
+    "Code Red",
+    "Emerald Jörmungandr"
+  ],
+  "USP-S": [
+    "Kill Confirmed",
+    "Printstream",
+    "Neo-Noir",
+    "Orion",
+    "Caiman"
+  ],
+  "Glock-18": [
+    "Fade",
+    "Bullet Queen",
+    "Neo-Noir",
+    "Twilight Galaxy"
+  ],
+  "Knives": [
+    "Karambit | Doppler",
+    "Karambit | Fade",
+    "Butterfly Knife | Fade",
+    "Butterfly Knife | Doppler",
+    "M9 Bayonet | Marble Fade",
+    "Bayonet | Doppler"
+  ]
 }
