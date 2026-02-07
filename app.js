@@ -1,66 +1,40 @@
-let prices = {};
-
-fetch("data/prices.json")
+fetch("data/skins.json")
   .then(res => res.json())
-  .then(data => prices = data);
+  .then(data => {
+    const select = document.getElementById("buySkin");
+    select.innerHTML = "";
 
-function floatMultiplier(f) {
-  if (f < 0.07) return 1.35;
-  if (f < 0.15) return 1.15;
-  if (f < 0.38) return 1.0;
-  if (f < 0.45) return 0.85;
-  return 0.7;
-}
+    Object.keys(data).forEach(weapon => {
+      const group = document.createElement("optgroup");
+      group.label = weapon;
 
-function stickerBonus(count) {
-  return 1 + (count * 0.05);
-}
+      data[weapon].forEach(skin => {
+        const opt = document.createElement("option");
+        opt.value = `${weapon} | ${skin}`;
+        opt.textContent = `${weapon} | ${skin}`;
+        group.appendChild(opt);
+      });
 
-function analyze(prefix) {
-  const skin = document.getElementById(prefix + "Skin").value;
-  const float = Number(document.getElementById(prefix + "Float").value);
-  const stickers = Number(document.getElementById(prefix + "Sticker").value);
-  const buyPrice = Number(document.getElementById(prefix + "Price").value);
-
-  if (!prices[skin]) {
-    alert("Skin verisi bulunamadı");
-    return;
-  }
-
-  const data = prices[skin];
-  const base = data.avg * floatMultiplier(float);
-  const finalPrice = base * stickerBonus(stickers);
-
-  let verdict = "🟡 BEKLE";
-  if (buyPrice < finalPrice * 0.95) verdict = "🟢 ALINIR";
-  if (buyPrice > finalPrice * 1.1) verdict = "🔴 PAHALI";
-
-  document.getElementById(prefix + "Result").innerHTML = `
-    Ortalama Değer: <b>${finalPrice.toFixed(0)} ₺</b><br>
-    Likidite: ${data.liq}/10<br>
-    Karar: <b>${verdict}</b>
-  `;
-
-  drawChart(data.history, prefix + "Chart");
-}
-
-function drawChart(values, canvasId) {
-  const canvas = document.getElementById(canvasId);
-  const ctx = canvas.getContext("2d");
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const max = Math.max(...values);
-
-  ctx.strokeStyle = "#22c55e";
-  ctx.beginPath();
-
-  values.forEach((val, i) => {
-    const x = (i / (values.length - 1)) * canvas.width;
-    const y = canvas.height - (val / max) * canvas.height;
-    if (i === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
+      select.appendChild(group);
+    });
   });
 
-  ctx.stroke();
+function analyze() {
+  const skin = document.getElementById("buySkin").value;
+  const float = parseFloat(document.getElementById("buyFloat").value || 0);
+  const price = parseFloat(document.getElementById("buyPrice").value || 0);
+
+  let score = Math.max(0, 100 - float * 100);
+  let verdict =
+    score > 90 ? "💎 MÜKEMMEL" :
+    score > 75 ? "🔥 ÇOK İYİ" :
+    score > 60 ? "✅ İYİ" :
+    "⚠️ RİSKLİ";
+
+  document.getElementById("buyResult").innerHTML = `
+    <div style="font-weight:bold;font-size:18px">${skin}</div>
+    <div>Float: ${float}</div>
+    <div>Skor: ${score.toFixed(1)}</div>
+    <div>${verdict}</div>
+  `;
 }
